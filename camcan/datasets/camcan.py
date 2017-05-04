@@ -210,13 +210,13 @@ def _load_camcan_behavioural_features(path_json):
     if not path_json.endswith('.json'):
         raise ValueError('The file {} is not a JSON file.'.format(path_json))
 
-    with open(path_json, 'r') as fp:
-        d = json.load(fp)
+    with open(path_json, 'r') as filename:
+        exp_features_map = json.load(filename)
 
-    for key in d:
-        d[key] = tuple(d[key])
+    for key in exp_features_map:
+        exp_features_map[key] = tuple(exp_features_map[key])
 
-    return d
+    return exp_features_map
 
 
 def load_camcan_rest(data_dir=CAMCAN_DRAGO_STORE,
@@ -620,7 +620,14 @@ def load_camcan_behavioural_feature(name_experiment, features_map):
     Parameters
     ----------
     name_experiment : str,
-        name of the experiment folder containing the behavioural information.
+        Name of the experiment folder containing the behavioural information.
+        Choices are: "ForceMatching", "RTchoice", "Hotel", "EkmanEmHex",
+        "MotorLearning", "VSTMcolour", "EmotionalMemory", "Synsem", "RTsimple",
+        "PicturePriming", "CardioMeasures", "MRI", "TOT", "EmotionRegulation",
+        "FamousFace", "Proverbs", "BentonFaces", "Cattell", "HomeInterview".
+
+    features_map : str,
+        path of the json file containing the features mapping.
 
     features_map : str,
         path of the json file containing the features mapping.
@@ -638,3 +645,4 @@ def load_camcan_behavioural_feature(name_experiment, features_map):
     features = exp_features_map[name_experiment]
 
     return tuple(features)
+
