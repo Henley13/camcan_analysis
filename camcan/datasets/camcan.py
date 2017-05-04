@@ -645,4 +645,3 @@ def load_camcan_behavioural_feature(name_experiment, features_map):
     features = exp_features_map[name_experiment]
 
     return tuple(features)
-
