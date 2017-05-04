@@ -35,8 +35,8 @@ CAMCAN_DRAGO_STORE_SCORES = '/storage/data/camcan/cc700-scored/'\
                             'participant_data.csv'
 
 # behavioural path
-CAMCAN_DRAGO_STORE_BEHAVIOURAL_EXPERIMENT = "/storage/data/camcan/" \
-                                            "cc700-scored/behavioural_features.json"
+CAMCAN_DRAGO_STORE_BEHAVIOURAL_EXPERIMENT = \
+    "/storage/data/camcan/cc700-scored/behavioural_features.json"
 
 # path for anatomical and functional images - BIDS format
 FUNCTIONAL_PATH = 'func'
@@ -630,8 +630,7 @@ def load_camcan_behavioural_feature(name_experiment, features_map):
     features : tuple of str
 
     """
-    exp_features_map = _load_camcan_behavioural_features\
-        (features_map)
+    exp_features_map = _load_camcan_behavioural_features(features_map)
 
     if name_experiment not in exp_features_map:
         raise KeyError('{} does not exist.'.format(name_experiment))
