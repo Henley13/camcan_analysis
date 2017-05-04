@@ -108,7 +108,7 @@ def merge_data(path_data, filename_participants):
     :return: dataframe, dictionary
     """
     d = {}
-    d_features= {}
+    d_features = {}
     for i in os.listdir(path_data):
         path0 = os.path.join(path_data, i)
         if os.path.isdir(path0):
